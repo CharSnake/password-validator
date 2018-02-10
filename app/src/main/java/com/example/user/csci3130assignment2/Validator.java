@@ -21,6 +21,18 @@ public class Validator {
         if (pass.length() >= 8)
             tests += 1;
 
+        //Test 3, string contains at least one number
+        if (pass.matches(".*\\d.*"))
+            tests += 1;
+
+        //Test 4, string contains at least one upper case AND one lower case
+        if (pass.matches(".*[a-z].*") && pass.matches(".*[A-Z].*"))
+            tests += 1;
+
+        //Test 5, string does not contain three of the same character in a row
+        if (!pass.matches(".*(.)\\1{2}.*"))
+            tests += 1;
+
         return tests;
     }
 }
